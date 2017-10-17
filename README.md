@@ -1,0 +1,1 @@
+# oylo's palette generator
