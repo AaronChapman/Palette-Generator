@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>oylo's palettes</title>
+
+        <link rel="stylesheet" href="generator.css">
+
+        <!--load application resources-->
+        <script src="sorting.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+    <body id="page_body" class="scroll_bar">
+        <div class="options_container">
+            <ul class="color_palette_options">
+                <li>
+                    <button class="option" id="all_colors" onclick="select_all_colors()">all colors</button>
+                </li>
+                <li>
+                    <button class="option" id="cool_colors"  onclick="select_cool_colors()">cool colors</button>
+                </li>
+                <li>
+                    <button class="option" id="warm_colors"  onclick="select_warm_colors()">warm colors</button>
+                </li>
+            </ul>
+            <ul class="hue_palette_options">
+                <li>
+                    <button class="option" id="regular_colors"  onclick="select_regular_colors()">regular</button>
+                </li>
+                <li>
+                    <button class="option" id="darker_colors"  onclick="select_dark_colors()">darker</button>
+                </li>
+                <li>
+                    <button class="option" id="pastel_colors"  onclick="select_pastel_colors()">pastel</button>
+                </li>
+            </ul>
+            <ul class="generation_palette_options">
+                <li>
+                    <button class="option" id="next" onclick="next()">next</button>
+                </li>
+                <li>
+                    <button class="option" id="start" onclick="start_loop()">loop</button>
+                </li>
+                <li>
+                    <button class="option" id="stop" onclick="stop_loop()">stop</button>
+                </li>
+            </ul>
+            <ul class="other_generation_palette_options">
+                <li>
+                    <button class="option" id="last" onclick="retrieve_palette_info()">last</button>
+                </li>
+                <li>
+                    <input class="numeric_option" type="number" id="size_of_palette" onkeyup="remove_pixels()" min="1" max="50" placeholder="palette size"/>
+                </li>
+                <li>
+                    <input class="numeric_option" type="number" id="speed_of_loop" onkeyup="change_speed()" min="1" max="60" placeholder="loop speed"/>
+                </li>
+            </ul>
+            <p id="message">oylo's palette generator</p>
+        </div>
+        <div class="selected_hex_container">
+            <div class="selected_hex_color" id="selected_hex_color">
+                <div>
+                    <input type="text" onclick="this.select()" placeholder="#F5F5F5" class="copy_area" id="copy_area"/>
+                </div>
+            </div>
+        </div>
+        <div id="palette" class="palette"></div>
+    </body>
+
+    <script>
+        //begin generating
+        generate_pixels();
+
+        //set up interface to match
+        set_selected_options();
+    </script>
+
+    <!--   a e s t h e t i c   -->
+    <script src="https://oylo.info/javascript/page_fade.js"></script>
+
+</html>
